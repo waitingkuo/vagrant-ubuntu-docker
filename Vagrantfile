@@ -31,6 +31,14 @@ Vagrant.configure(2) do |config|
     end
     host.vm.network "private_network", ip: "192.168.100.103"
   end
+  config.vm.define "host4" do |host|
+    host.vm.provision "docker" do |d|
+      d.build_image "/vagrant/app"
+    end
+    host.vm.network "private_network", ip: "192.168.100.104"
+  end
+
+  # Disable automatic box update checking. If you disable this, then
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
